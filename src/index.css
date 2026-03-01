@@ -152,14 +152,278 @@
   animation: shimmer 1.5s infinite;
 }
 
-/* Hide platform badges */
-#bolt-badge, 
+/* ========================================
+   PLATFORM BADGE REMOVAL - COMPREHENSIVE
+   Covers all known platform badges that 
+   appear in bottom-right corner
+   ======================================== */
+
+/* Bolt platform badges */
+#bolt-badge,
 .bolt-badge,
-[data-bolt-badge] {
+[data-bolt-badge],
+.bolt-new-badge,
+[class*="bolt-badge"],
+[class^="bolt-"],
+[id*="bolt-"],
+[id^="bolt-"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+}
+
+/* Famous.ai badges */
+#famous-badge,
+.famous-badge,
+[data-famous-badge],
+.famous-ai-badge,
+[class*="famous-badge"],
+[class^="famous-"],
+[id*="famous-"],
+[id^="famous-"],
+.famous-branding,
+.famous-watermark,
+.famous-logo,
+.famous-powered {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+}
+
+/* Vercel badges */
+#vercel-badge,
+.vercel-badge,
+[data-vercel-badge],
+[class*="vercel-badge"],
+[class^="vercel-"],
+.vercel-powered,
+.vercel-branding {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+}
+
+/* Netlify badges */
+#netlify-badge,
+.netlify-badge,
+[data-netlify-badge],
+[class*="netlify-badge"],
+[class^="netlify-"],
+.netlify-powered,
+.netlify-branding {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+}
+
+/* Replit badges */
+#replit-badge,
+.replit-badge,
+[data-replit-badge],
+[class*="replit-badge"],
+[class^="replit-"],
+.replit-powered,
+.replit-branding {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+}
+
+/* CodeSandbox badges */
+#codesandbox-badge,
+.codesandbox-badge,
+[data-codesandbox-badge],
+[class*="codesandbox-badge"],
+[class^="codesandbox-"],
+.codesandbox-powered,
+.codesandbox-branding {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+}
+
+/* StackBlitz badges */
+#stackblitz-badge,
+.stackblitz-badge,
+[data-stackblitz-badge],
+[class*="stackblitz-badge"],
+[class^="stackblitz-"],
+.stackblitz-powered,
+.stackblitz-branding {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+}
+
+/* GitHub Codespaces badges */
+#github-codespaces-badge,
+.github-codespaces-badge,
+[data-github-codespaces-badge],
+[class*="github-codespaces-badge"],
+[class^="github-codespaces-"],
+.github-codespaces-powered,
+.github-codespaces-branding {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+}
+
+/* Generic platform badges - catch-all for common patterns */
+#platform-badge,
+.platform-badge,
+[data-platform-badge],
+[data-made-with],
+[data-powered-by],
+.made-with-badge,
+.powered-by-badge,
+.platform-branding,
+.platform-watermark,
+.bottom-right-badge,
+.corner-badge,
+.fixed-badge,
+.floating-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+}
+
+/* Catch any iframe-based badges */
+iframe[src*="bolt.new"],
+iframe[src*="famous.ai"],
+iframe[src*="vercel.app/badge"],
+iframe[src*="netlify.com/badge"],
+iframe[class*="badge"],
+iframe[id*="badge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: -9999 !important;
+  height: 0 !important;
+  width: 0 !important;
+  border: none !important;
+}
+
+/* Target badges in bottom-right corner specifically */
+div[style*="position: fixed"][style*="bottom: 0"][style*="right: 0"],
+div[style*="position:fixed"][style*="bottom:0"][style*="right:0"],
+a[style*="position: fixed"][style*="bottom: 0"][style*="right: 0"],
+a[style*="position:fixed"][style*="bottom:0"][style*="right:0"],
+img[style*="position: fixed"][style*="bottom: 0"][style*="right: 0"],
+img[style*="position:fixed"][style*="bottom:0"][style*="right:0"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
   height: 0 !important;
   width: 0 !important;
 }
@@ -183,6 +447,21 @@ select:focus-visible {
   
   .no-print {
     display: none !important;
+  }
+  
+  /* Ensure badges stay hidden when printing */
+  #bolt-badge,
+  .bolt-badge,
+  [data-bolt-badge],
+  #famous-badge,
+  .famous-badge,
+  [data-famous-badge],
+  .platform-badge,
+  .made-with-badge,
+  .powered-by-badge {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 }
 
