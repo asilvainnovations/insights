@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASilva Innovations Blog Platform</title>
+    <meta name="description" content="A sophisticated blog platform for ASilva Innovations to establish thought leadership in strategic management and analytics." />
+    <link rel="icon" type="image/svg+xml" href="https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png" />
+
+    <meta property="og:title" content="Innovative Blog Platform" />
+    <meta property="og:description" content="A sophisticated blog platform for ASilva Innovations to establish thought leadership in strategic management and analytics." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/og.jpg" />
+  <link rel="preconnect" href="https://asilvainnovations.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <!-- Enhanced Badge Removal CSS -->
+    <style>
+      /* Critical badge removal styles - loaded immediately */
+      #bolt-badge, 
+      .bolt-badge,
+      [data-bolt-badge],
+      [id*="bolt"][id*="badge"],
+      [class*="bolt"][class*="badge"],
+      iframe[src*="bolt"],
+      iframe[src*="badge"],
+      a[href*="bolt.new"],
+      a[href*="bolt.diy"],
+      [data-badge="bolt"],
+      [data-platform="bolt"],
+      .platform-badge,
+      .builder-badge,
+      .powered-by-badge,
+      [class*="made-in"],
+      [class*="powered-by"],
+      [class*="built-with"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Badge Removal Script - Runs after initial load -->
+    <script type="module">
+      // Inline badge removal for immediate execution
+      (function() {
+        const removeBadges = () => {
+          const selectors = [
+            '#bolt-badge',
+            '.bolt-badge',
+            '[data-bolt-badge]',
+            '[id*="bolt"][id*="badge"]',
+            '[class*="bolt"][class*="badge"]',
+            'iframe[src*="bolt"]',
+            'a[href*="bolt.new"]',
+            'a[href*="bolt.diy"]',
+            '[data-badge]',
+            '[data-platform]',
+            '.platform-badge',
+            '.builder-badge',
+            '.powered-by-badge'
+          ];
+          
+          selectors.forEach(selector => {
+            try {
+              const elements = document.querySelectorAll(selector);
+              elements.forEach(el => {
+                el.remove();
+              });
+            } catch (e) {
+              // Selector may not be valid in all browsers
+            }
+          });
+
+          // Remove fixed bottom-right elements (typical badge placement)
+          const fixedElements = document.querySelectorAll('[style*="position: fixed"]');
+          fixedElements.forEach(el => {
+            const style = window.getComputedStyle(el);
+            const bottom = parseInt(style.bottom);
+            const right = parseInt(style.right);
+            if (bottom < 100 && right < 100 && bottom >= 0 && right >= 0) {
+              const text = el.textContent?.toLowerCase() || '';
+              if (text.includes('bolt') || text.includes('made') || text.includes('powered')) {
+                el.remove();
+              }
+            }
+          });
+        };
+
+        // Run on DOMContentLoaded
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', removeBadges);
+        } else {
+          removeBadges();
+        }
+
+        // Run periodically to catch dynamically added badges
+        setInterval(removeBadges, 1000);
+
+        // Set up mutation observer
+        const observer = new MutationObserver(removeBadges);
+        observer.observe(document.body || document.documentElement, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['class', 'id', 'style']
+        });
+      })();
+    </script>
+  </body>
+</html>
