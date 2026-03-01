@@ -4,30 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========================================
-   BRAND DESIGN TOKENS
-   ======================================== */
 :root {
-  /* Primary Brand Colors */
   --brand-primary: #0A2463;
   --brand-secondary: #0D3B66;
   --brand-accent: #00B4D8;
   --brand-light: #F8F9FA;
   --brand-dark: #1A1A1A;
-  
-  /* Logo Assets */
   --logo-url: url('https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png');
   --logo-width: 120px;
   --logo-height: auto;
-  
-  /* Category Colors */
   --category-systems: #2E5EFF;
   --category-risk: #FF9F1C;
   --category-resilience: #2D6A4F;
   --category-ai: #FF6B6B;
   --category-leadership: #4ECDC4;
-  
-  /* Explicit light mode text colors */
   --text-primary: #1A1A1A;
   --text-secondary: #4B5563;
   --text-tertiary: #6B7280;
@@ -37,7 +27,6 @@
   --background-secondary: #F9FAFB;
 }
 
-/* DARK MODE OVERRIDES */
 @media (prefers-color-scheme: dark) {
   :root {
     --text-primary: #F1F5F9;
@@ -268,23 +257,23 @@
 
 @layer utilities {
   .text-primary {
-    color: var(--text-primary) !important;
+    color: var(--text-primary);
   }
   
   .text-secondary {
-    color: var(--text-secondary) !important;
+    color: var(--text-secondary);
   }
   
   .text-tertiary {
-    color: var(--text-tertiary) !important;
+    color: var(--text-tertiary);
   }
   
   .heading-primary {
-    color: var(--heading-primary) !important;
+    color: var(--heading-primary);
   }
   
   .heading-secondary {
-    color: var(--heading-secondary) !important;
+    color: var(--heading-secondary);
   }
   
   .animate-fadeIn {
@@ -378,17 +367,16 @@
   animation: shimmer 1.5s infinite;
 }
 
-/* PLATFORM BADGE REMOVAL */
 #bolt-badge, 
 .bolt-badge,
 [data-bolt-badge],
 iframe[src*="bolt.new"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  height: 0 !important;
-  width: 0 !important;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  width: 0;
 }
 
 button:focus-visible,
@@ -407,17 +395,17 @@ select:focus-visible {
   }
   
   .no-print {
-    display: none !important;
+    display: none;
   }
   
   .prose {
     max-width: 100%;
-    color: #000000 !important;
+    color: #000000;
   }
 
   .brand-logo {
-    filter: none !important;
-    opacity: 1 !important;
+    filter: none;
+    opacity: 1;
   }
 }
 
