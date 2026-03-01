@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 import typography from "@tailwindcss/typography";
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -78,9 +78,9 @@ export default {
         serif: ["Merriweather", "Georgia", "serif"],
       },
       borderRadius: {
-        lg: "calc(var(--radius) + 2px)",
-        md: "var(--radius)",
-        sm: "calc(var(--radius) - 2px)"
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)"
       },
       keyframes: {
         "accordion-down": {
@@ -108,8 +108,7 @@ export default {
       },
     }
   },
-  plugins: [
-    animate,
-    typography,
-  ],
-} satisfies Config;
+  plugins: [animate, typography],
+};
+
+export default config;
