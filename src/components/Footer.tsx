@@ -165,8 +165,8 @@ export default function Footer({ onCategorySelect, onNewsletterOpen }: FooterPro
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Newsletter Archive
+                <a href="https://asilvainnovations.com/smart-flood-detection/" className="text-gray-400 hover:text-white transition-colors">
+                  Smart Flood Detection
                 </a>
               </li>
             </ul>
@@ -225,6 +225,11 @@ export default function Footer({ onCategorySelect, onNewsletterOpen }: FooterPro
             </a>
             <a href="https://asilvainnovations.com/cookie-policy/" className="text-gray-500 hover:text-white transition-colors">
               Cookie Policy
+               <a href="https://asilvainnovations.com/accessibility/" className="text-gray-500 hover:text-white transition-colors">
+              Accessibility Policy
+            <a href="https://asilvainnovations.com/ai-ethics-and-policy-framework/" className="text-gray-500 hover:text-white transition-colors">
+              AI Ethics and Policy Framework
+            </a>
             </a>
             <a href="https://asilvainnovations.com/site-map/" className="text-gray-500 hover:text-white transition-colors">
               Sitemap
