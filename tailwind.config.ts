@@ -64,19 +64,18 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))'
         },
-        // ✅ Explicit brand colors for light mode
         brand: {
-          primary: '#0A2463',    // Deep blue (ASilva primary)
-          secondary: '#0D3B66',  // Navy blue
-          accent: '#00B4D8',     // Cyan accent
-          light: '#F8F9FA',      // Light gray background
-          dark: '#1A1A1A',       // Near-black text
+          primary: '#0A2463',
+          secondary: '#0D3B66',
+          accent: '#00B4D8',
+          light: '#F8F9FA',
+          dark: '#1A1A1A',
         },
       },
       fontFamily: {
         mono: ['JetBrains Mono', 'monospace'],
         sans: ['Inter', 'sans-serif'],
-        serif: ['Merriweather', 'Georgia', 'serif'], // ✅ Added serif font stack
+        serif: ['Merriweather', 'Georgia', 'serif'],
       },
       borderRadius: {
         lg: 'calc(var(--radius) + 2px)',
@@ -107,146 +106,181 @@ export default {
         'fade-in': 'fade-in 0.3s ease-out',
         'slide-in': 'slide-in 0.3s ease-out',
       },
-      // ✅ ENHANCED TYPOGRAPHY: Explicit black/dark gray text on white backgrounds
       typography: {
         DEFAULT: {
           css: {
-            // Base text styling for maximum readability
-            color: 'hsl(var(--foreground))', // Fallback to CSS variable
-            '@apply text-gray-800 dark:text-gray-200': {}, // ✅ Explicit light/dark mode colors
-            
+            color: 'hsl(var(--foreground))',
             maxWidth: '65ch',
             lineHeight: '1.75',
-            
-            // Headings with proper hierarchy
             h1: {
-              '@apply text-4xl font-bold mt-8 mb-4 text-gray-900 dark:text-white': {},
+              fontSize: '2.25rem',
+              fontWeight: '700',
+              marginTop: '2rem',
+              marginBottom: '1rem',
               lineHeight: '1.2',
+              color: '#111827',
             },
             h2: {
-              '@apply text-2xl font-bold mt-10 mb-3 text-gray-900 dark:text-white border-l-4 border-brand-primary pl-3': {},
+              fontSize: '1.5rem',
+              fontWeight: '700',
+              marginTop: '2.5rem',
+              marginBottom: '0.75rem',
               lineHeight: '1.3',
+              color: '#111827',
+              borderLeftWidth: '4px',
+              borderLeftColor: '#0A2463',
+              paddingLeft: '0.75rem',
             },
             h3: {
-              '@apply text-xl font-semibold mt-8 mb-2 text-gray-900 dark:text-white': {},
+              fontSize: '1.25rem',
+              fontWeight: '600',
+              marginTop: '2rem',
+              marginBottom: '0.5rem',
               lineHeight: '1.4',
+              color: '#111827',
             },
             h4: {
-              '@apply text-lg font-semibold mt-6 mb-2 text-gray-900 dark:text-white': {},
+              fontSize: '1.125rem',
+              fontWeight: '600',
+              marginTop: '1.5rem',
+              marginBottom: '0.5rem',
+              color: '#111827',
             },
-            
-            // Paragraphs and inline elements
             p: {
-              '@apply my-4 text-gray-800 dark:text-gray-300': {},
               marginTop: '1.25em',
               marginBottom: '1.25em',
+              color: '#1f2937',
             },
             a: {
-              '@apply text-brand-primary font-medium hover:text-brand-secondary transition-colors underline-offset-2 hover:underline': {},
+              color: '#0A2463',
+              fontWeight: '500',
+              textDecoration: 'underline',
+              textUnderlineOffset: '2px',
+              transition: 'color 0.2s',
+            },
+            'a:hover': {
+              color: '#0D3B66',
             },
             strong: {
-              '@apply font-semibold text-gray-900 dark:text-white': {},
+              fontWeight: '600',
+              color: '#111827',
             },
             em: {
-              '@apply not-italic text-gray-700 dark:text-gray-300 font-medium': {},
+              fontStyle: 'italic',
+              color: '#374151',
             },
             code: {
-              '@apply px-1.5 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-sm font-mono text-brand-primary dark:text-brand-accent': {},
-            },
-            pre: {
-              '@apply p-4 rounded-lg bg-gray-50 dark:bg-gray-900 overflow-x-auto my-6': {},
-              code: {
-                '@apply bg-transparent p-0 text-sm': {},
-              },
-            },
-            
-            // Lists
-            'ul, ol': {
-              '@apply my-6 pl-6': {},
-              li: {
-                '@apply my-1 text-gray-800 dark:text-gray-300': {},
-                'p:first-child': { marginTop: 0 },
-                'p:last-child': { marginBottom: 0 },
-              },
-            },
-            'ul > li::before': {
-              backgroundColor: '#0A2463',
-            },
-            'ol > li::before': {
+              padding: '0.25rem 0.5rem',
+              borderRadius: '0.375rem',
+              backgroundColor: '#f3f4f6',
+              fontSize: '0.875rem',
+              fontFamily: 'JetBrains Mono, monospace',
               color: '#0A2463',
             },
-            
-            // Blockquotes
+            pre: {
+              padding: '1rem',
+              borderRadius: '0.5rem',
+              backgroundColor: '#f9fafb',
+              overflowX: 'auto',
+              marginTop: '1.5rem',
+              marginBottom: '1.5rem',
+            },
+            'pre code': {
+              backgroundColor: 'transparent',
+              padding: '0',
+              fontSize: '0.875rem',
+              color: '#1f2937',
+            },
+            'ul, ol': {
+              marginTop: '1.5rem',
+              marginBottom: '1.5rem',
+              paddingLeft: '1.5rem',
+            },
+            li: {
+              marginTop: '0.25rem',
+              marginBottom: '0.25rem',
+              color: '#1f2937',
+            },
+            'ul > li::marker': {
+              color: '#0A2463',
+            },
+            'ol > li::marker': {
+              color: '#0A2463',
+            },
             blockquote: {
-              '@apply border-l-4 border-brand-accent pl-4 italic my-6 py-2 bg-gray-50 dark:bg-gray-800/50': {},
-              color: '#1A1A1A',
-              p: {
-                '@apply text-lg font-medium text-gray-900 dark:text-gray-100': {},
-              },
+              borderLeftWidth: '4px',
+              borderLeftColor: '#00B4D8',
+              paddingLeft: '1rem',
+              fontStyle: 'italic',
+              marginTop: '1.5rem',
+              marginBottom: '1.5rem',
+              padding: '1rem',
+              backgroundColor: 'rgba(0, 180, 216, 0.05)',
+              borderRadius: '0 0.5rem 0.5rem 0',
             },
-            
-            // Tables
+            'blockquote p': {
+              fontSize: '1.125rem',
+              fontWeight: '500',
+              color: '#111827',
+              margin: '0',
+            },
             table: {
-              '@apply w-full my-8 text-sm': {},
-              thead: {
-                '@apply bg-gray-50 dark:bg-gray-800/50': {},
-                th: {
-                  '@apply py-2 px-3 text-left font-semibold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700': {},
-                },
-              },
-              tbody: {
-                tr: {
-                  '@apply border-b border-gray-100 dark:border-gray-800': {},
-                  td: {
-                    '@apply py-2 px-3 text-gray-800 dark:text-gray-300': {},
-                  },
-                  '&:last-child': {
-                    borderColor: 'transparent',
-                  },
-                },
-              },
+              width: '100%',
+              marginTop: '2rem',
+              marginBottom: '2rem',
+              fontSize: '0.875rem',
             },
-            
-            // Horizontal rules
+            thead: {
+              backgroundColor: '#f9fafb',
+            },
+            'thead th': {
+              padding: '0.75rem',
+              textAlign: 'left',
+              fontWeight: '600',
+              color: '#111827',
+              borderBottomWidth: '1px',
+              borderBottomColor: '#e5e7eb',
+            },
+            'tbody tr': {
+              borderBottomWidth: '1px',
+              borderBottomColor: '#f3f4f6',
+            },
+            'tbody td': {
+              padding: '0.75rem',
+              color: '#1f2937',
+            },
             hr: {
-              '@apply my-10 border-t border-gray-200 dark:border-gray-700': {},
+              marginTop: '2.5rem',
+              marginBottom: '2.5rem',
+              borderTopWidth: '1px',
+              borderColor: '#e5e7eb',
             },
-            
-            // Images
             img: {
-              '@apply rounded-lg my-6': {},
-            },
-            
-            // Responsive adjustments
-            '@screen sm': {
-              maxWidth: '70ch',
-            },
-            '@screen md': {
-              maxWidth: '75ch',
+              borderRadius: '0.5rem',
+              marginTop: '1.5rem',
+              marginBottom: '1.5rem',
             },
           },
         },
-        // ✅ Light mode override (explicit white background + dark text)
         light: {
           css: {
-            '--tw-prose-body': '#1A1A1A',        // Near-black body text
-            '--tw-prose-headings': '#0A2463',    // Brand blue headings
-            '--tw-prose-links': '#0A2463',       // Brand blue links
-            '--tw-prose-bold': '#0A2463',        // Bold text in brand blue
-            '--tw-prose-counters': '#6B7280',    // Gray counters
-            '--tw-prose-bullets': '#0A2463',     // Blue bullet points
-            '--tw-prose-hr': '#E5E7EB',          // Light gray HR
-            '--tw-prose-quotes': '#0A2463',      // Blue quotes
+            '--tw-prose-body': '#1A1A1A',
+            '--tw-prose-headings': '#0A2463',
+            '--tw-prose-links': '#0A2463',
+            '--tw-prose-bold': '#0A2463',
+            '--tw-prose-counters': '#6B7280',
+            '--tw-prose-bullets': '#0A2463',
+            '--tw-prose-hr': '#E5E7EB',
+            '--tw-prose-quotes': '#0A2463',
             '--tw-prose-quote-borders': '#0A2463',
-            '--tw-prose-captions': '#6B7280',    // Gray captions
-            '--tw-prose-code': '#0A2463',        // Blue code
-            '--tw-prose-pre-code': '#1A1A1A',    // Dark code text
-            '--tw-prose-pre-bg': '#F9FAFB',      // Light code background
-            '--tw-prose-th-borders': '#D1D5DB',  // Table borders
-            '--tw-prose-td-borders': '#E5E7EB',  // Table cell borders
-            
-            color: '#1A1A1A',                    // ✅ Explicit near-black text
-            backgroundColor: '#FFFFFF',          // ✅ Explicit white background
+            '--tw-prose-captions': '#6B7280',
+            '--tw-prose-code': '#0A2463',
+            '--tw-prose-pre-code': '#1A1A1A',
+            '--tw-prose-pre-bg': '#F9FAFB',
+            '--tw-prose-th-borders': '#D1D5DB',
+            '--tw-prose-td-borders': '#E5E7EB',
+            color: '#1A1A1A',
+            backgroundColor: '#FFFFFF',
             '[class~="lead"]': { color: '#4B5563' },
           }
         },
