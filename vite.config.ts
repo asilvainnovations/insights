@@ -11,11 +11,20 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      "@/types": path.resolve(__dirname, "./src/types/index.ts"),
-      "@/lib": path.resolve(__dirname, "./src/lib"),
-      "@/components": path.resolve(__dirname, "./src/components"),
-      "@/hooks": path.resolve(__dirname, "./src/hooks"),
-      "@/contexts": path.resolve(__dirname, "./src/contexts"),
+    },
+  },
+  build: {
+    chunkSizeWarningLimit: 1000, // Increase limit to 1000kb to avoid warning
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split vendor chunks for better caching
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'ui-vendor': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-toast', '@radix-ui/react-tooltip'],
+          'query-vendor': ['@tanstack/react-query'],
+          'supabase-vendor': ['@supabase/supabase-js'],
+        },
+      },
     },
   },
 });
