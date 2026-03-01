@@ -1,7 +1,3 @@
-// ========================================
-// USER & PROFILE TYPES
-// ========================================
-
 export interface Profile {
   id: string;
   username?: string;
@@ -19,10 +15,6 @@ export interface Profile {
   created_at: string;
   updated_at: string;
 }
-
-// ========================================
-// CONTENT BLOCK TYPES
-// ========================================
 
 export type BlockType =
   | 'paragraph'
@@ -49,10 +41,6 @@ export interface ContentBlock {
   content: string;
   metadata?: Record<string, unknown>;
 }
-
-// ========================================
-// ARTICLE TYPES
-// ========================================
 
 export type ArticleStatus = 'draft' | 'published' | 'scheduled' | 'archived';
 
@@ -89,47 +77,6 @@ export interface Article {
   updated_at: string;
 }
 
-export interface ArticleVersion {
-  id: string;
-  article_id: string;
-  author_id: string;
-  title: string;
-  content: ContentBlock[];
-  excerpt?: string;
-  featured_image?: string;
-  tags?: string[];
-  created_at: string;
-}
-
-export interface CreateArticleInput {
-  title: string;
-  excerpt: string;
-  content: ContentBlock[];
-  featured_image: string;
-  category: Category;
-  tags: string[];
-  status: ArticleStatus;
-  scheduled_publish_at?: string;
-  meta_title?: string;
-  meta_description?: string;
-  og_image?: string;
-  canonical_url?: string;
-}
-
-export interface UpdateArticleInput extends Partial<CreateArticleInput> {
-  id: string;
-}
-
-export interface PublishArticleInput {
-  id: string;
-  status: ArticleStatus;
-  scheduled_publish_at?: string;
-}
-
-// ========================================
-// CATEGORY CONFIGURATION
-// ========================================
-
 export const CATEGORY_COLORS: Record<Category, { bg: string; text: string; accent: string }> = {
   'Systems Innovations': { bg: 'bg-blue-100', text: 'text-blue-700', accent: '#2E5EFF' },
   'Integrated Risk Management': { bg: 'bg-amber-100', text: 'text-amber-700', accent: '#FF9F1C' },
@@ -145,10 +92,6 @@ export const CATEGORIES: Category[] = [
   'AI and Analytics',
   'Real-Time Leadership',
 ];
-
-// ========================================
-// COMMENT TYPES
-// ========================================
 
 export interface Comment {
   id: string;
@@ -167,40 +110,6 @@ export interface Comment {
   replies?: Comment[];
 }
 
-// ========================================
-// NEWSLETTER TYPES
-// ========================================
-
-export interface NewsletterSubscriber {
-  id: string;
-  email: string;
-  name?: string;
-  tags?: string[];
-  source?: string;
-  status: 'active' | 'unsubscribed';
-  subscribed_at: string;
-  unsubscribed_at?: string;
-}
-
-// ========================================
-// ANALYTICS TYPES
-// ========================================
-
-export interface AnalyticsEvent {
-  id: string;
-  event_type: string;
-  article_id?: string;
-  page_path: string;
-  referrer?: string;
-  user_agent?: string;
-  session_id?: string;
-  created_at: string;
-}
-
-// ========================================
-// EDITOR TYPES
-// ========================================
-
 export interface EditorState {
   title: string;
   excerpt: string;
@@ -214,70 +123,4 @@ export interface EditorState {
   meta_description?: string;
   og_image?: string;
   canonical_url?: string;
-}
-
-export interface AutoSaveState {
-  draft_content: ContentBlock[];
-  auto_save_timestamp: string;
-}
-
-// ========================================
-// MODERATION & TASK TYPES
-// ========================================
-
-export interface CommentReport {
-  id: string;
-  comment_id: string;
-  reporter_id?: string;
-  reason: 'spam' | 'harassment' | 'hate_speech' | 'irrelevant' | 'other';
-  details?: string;
-  status: 'pending' | 'reviewed' | 'dismissed';
-  created_at: string;
-}
-
-export interface SavedSearch {
-  id: string;
-  user_id: string;
-  name: string;
-  query: string;
-  filters: Record<string, unknown>;
-  is_default: boolean;
-  created_at: string;
-  updated_at: string;
-}
-
-export interface ScheduledTask {
-  id: string;
-  task_type: 'publish_article' | 'send_newsletter' | 'cleanup_drafts' | 'recalculate_analytics' | 'moderate_comments';
-  payload: Record<string, unknown>;
-  scheduled_at: string;
-  executed_at?: string;
-  status: 'pending' | 'processing' | 'completed' | 'failed';
-  error_message?: string;
-  retry_count: number;
-  max_retries: number;
-  created_at: string;
-  updated_at: string;
-}
-
-// ========================================
-// API RESPONSE TYPES
-// ========================================
-
-export interface ApiResponse<T> {
-  data: T | null;
-  error: Error | null;
-  message?: string;
-}
-
-export interface ValidationError {
-  field: string;
-  message: string;
-}
-
-export interface PublishResult {
-  success: boolean;
-  article?: Article;
-  errors?: ValidationError[];
-  scheduled?: boolean;
 }
