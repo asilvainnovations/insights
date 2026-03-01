@@ -1,3 +1,6 @@
+/* Import Roboto Condensed for page titles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;800&display=swap');
+
 #root {
   width: 100%;
   min-height: 100vh;
@@ -12,6 +15,7 @@
   min-height: 100vh;
 }
 
+/* Logo styles with fixed URL (removed trailing space) */
 .app-logo {
   background-image: url('https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png');
   background-size: contain;
@@ -77,6 +81,7 @@
   border: none;
 }
 
+/* Button styles */
 .btn {
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
@@ -123,6 +128,7 @@
   background: rgba(10, 36, 99, 0.05);
 }
 
+/* Typography */
 .page-title {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 800;
@@ -144,6 +150,7 @@
   max-width: 600px;
 }
 
+/* Section styles */
 .section {
   padding: 4rem 0;
 }
@@ -176,6 +183,7 @@
   line-height: 1.7;
 }
 
+/* Footer styles */
 .app-footer {
   background: linear-gradient(135deg, #0A2463 0%, #0D3B66 100%);
   color: rgba(255, 255, 255, 0.9);
@@ -206,7 +214,7 @@
 
 .footer-brand-text {
   font-size: 0.9rem;
-  color: rgba(13, 11, 11, 0.7);
+  color: rgba(255, 255, 255, 0.7);
   margin-top: 0.5rem;
 }
 
@@ -248,17 +256,10 @@
   margin-top: 2rem;
 }
 
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
+/* Utility classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
 
 .mt-1 { margin-top: 0.25rem; }
 .mt-2 { margin-top: 0.5rem; }
@@ -269,6 +270,7 @@
 .mb-4 { margin-bottom: 1rem; }
 .mb-8 { margin-bottom: 2rem; }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .section {
     padding: 2rem 0;
@@ -292,6 +294,7 @@
   }
 }
 
+/* Animations */
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
@@ -318,6 +321,7 @@
   animation: float 3s ease-in-out infinite;
 }
 
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none;
@@ -325,6 +329,7 @@
   }
 }
 
+/* Print styles */
 @media print {
   .app-logo {
     filter: none;
