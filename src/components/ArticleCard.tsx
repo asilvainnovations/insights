@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, Eye, ArrowRight, Bookmark, Share2, Loader2 } from 'lucide-react';
-import { Article, CATEGORY_COLORS, Category } from '@/types';
-import { useAuth } from '@/contexts/AuthContext';
-import { useBookmarks } from './BookmarksPage';
+// Change this import to use the types file directly
+import { CATEGORY_COLORS, Category, Article } from '../types/index';
+// or if types are in a different location:
+// import { CATEGORY_COLORS, Category, Article } from '@/types/index';
 
 interface ArticleCardProps {
   article: Article;

@@ -11,9 +11,11 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@/types": path.resolve(__dirname, "./src/types/index.ts"),
+      "@/lib": path.resolve(__dirname, "./src/lib"),
+      "@/components": path.resolve(__dirname, "./src/components"),
+      "@/hooks": path.resolve(__dirname, "./src/hooks"),
+      "@/contexts": path.resolve(__dirname, "./src/contexts"),
     },
-  },
-  build: {
-    cssMinify: true,
   },
 });
