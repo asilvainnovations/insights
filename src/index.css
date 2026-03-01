@@ -4,69 +4,88 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ========================================
+   🎨 BRAND DESIGN TOKENS
+   ======================================== */
 :root {
+  /* Primary Brand Colors */
   --brand-primary: #0A2463;
   --brand-secondary: #0D3B66;
   --brand-accent: #00B4D8;
-  --text-primary: #1A1A1A;
-  --text-secondary: #4B5563;
-  --background-primary: #FFFFFF;
-  --background-secondary: #F9FAFB;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --radius: 0.5rem;
+  --brand-light: #F8F9FA;
+  --brand-dark: #1A1A1A;
+  
+  /* Logo Assets */
+  --logo-url: url('https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png');
+  --logo-width: 120px;
+  --logo-height: auto;
+  
+  /* Category Colors */
+  --category-systems: #2E5EFF;
+  --category-risk: #FF9F1C;
+  --category-resilience: #2D6A4F;
+  --category-ai: #FF6B6B;
+  --category-leadership: #4ECDC4;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-primary: #F1F5F9;
-    --text-secondary: #CBD5E1;
-    --background-primary: #0F172A;
-    --background-secondary: #1E293B;
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Roboto Condensed', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: black;
+    background-color: #FFFFFF;
+    color: #1F2937;
+  }
+
+  /* Serif font for article body text */
+  .font-serif {
+    font-family: 'Merriweather', Georgia, serif;
+  }
+
+  /* Brand Logo Class */
+  .brand-logo {
+    background-image: var(--logo-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: var(--logo-width);
+    height: 60px;
+    display: inline-block;
+  }
+
+  .brand-logo-large {
+    width: 180px;
+    height: 90px;
+  }
+
+  .brand-logo-small {
+    width: 80px;
+    height: 40px;
+  }
+
+  /* Logo as content image */
+  .logo-img {
+    content: var(--logo-url);
   }
 }
 
-html {
-  scroll-behavior: smooth;
-  background-color: var(--background-primary);
-  color: var(--text-primary);
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-primary);
-  color: var(--text-primary);
-  line-height: 1.5;
-}
-
-.font-serif {
-  font-family: 'Merriweather', Georgia, serif;
-}
-
 @layer components {
+  /* Custom scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Prose styles for article content */
   .prose {
-    color: var(--text-primary);
     line-height: 1.7;
     max-width: 80ch;
     margin-left: auto;
@@ -74,17 +93,18 @@ body {
   }
   
   .prose h2 {
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 1.75rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
+    color: #111827;
     position: relative;
     padding-left: 12px;
-    color: var(--heading-primary);
   }
   
   .prose h2::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 50%;
@@ -94,16 +114,127 @@ body {
     background: linear-gradient(to bottom, var(--brand-primary), var(--brand-accent));
     border-radius: 2px;
   }
-}
+  
+  .prose h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.375rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+  }
+  
+  .prose p {
+    margin-bottom: 1.5rem;
+    color: #374151;
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+  
+  .prose ul, .prose ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .prose li {
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+  
+  .prose blockquote {
+    font-style: italic;
+    border-left: 4px solid var(--brand-accent);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    color: #4b5563;
+    background: linear-gradient(90deg, rgba(0, 180, 216, 0.05), transparent);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  .prose strong {
+    font-weight: 600;
+    color: #111827;
+  }
 
-@layer utilities {
-  .text-gradient {
+  .prose a {
+    color: var(--brand-primary);
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .prose a:hover {
+    color: var(--brand-accent);
+    text-decoration: none;
+  }
+
+  /* Brand Header Component */
+  .brand-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .brand-header .brand-logo {
+    filter: drop-shadow(0 2px 8px rgba(10, 36, 99, 0.15));
+    transition: transform 0.3s ease;
+  }
+
+  .brand-header .brand-logo:hover {
+    transform: scale(1.05);
+  }
+
+  .brand-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
     background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  /* Footer Branding */
+  .footer-brand {
+    text-align: center;
+    padding: 32px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .footer-brand .brand-logo {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+
+  .footer-brand .brand-logo:hover {
+    opacity: 1;
+  }
+
+  .footer-brand-text {
+    color: #6B7280;
+    font-size: 0.9rem;
+    margin-top: 8px;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
   }
   
+  .animate-scaleIn {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+  
+  .animate-slideUp {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+
+  /* Line clamp utilities */
   .line-clamp-1 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -124,13 +255,236 @@ body {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Brand gradient backgrounds */
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 50%, var(--brand-accent) 100%);
+  }
+
+  .bg-brand-subtle {
+    background: linear-gradient(135deg, rgba(10, 36, 99, 0.03) 0%, rgba(13, 59, 102, 0.02) 100%);
+  }
 }
 
+/* Keyframe animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out forwards;
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom coral color for AI category */
+.bg-coral-100 {
+  background-color: #ffe4e6;
+}
+
+.text-coral-600 {
+  color: #e11d48;
+}
+
+/* Reading progress bar animation */
+.reading-progress {
+  transition: width 0.15s ease-out;
+}
+
+/* Skeleton loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ========================================
+   🛡️ ENHANCED PLATFORM BADGE REMOVAL
+   ======================================== */
+
+/* Primary Bolt Badge Selectors */
+#bolt-badge, 
+.bolt-badge,
+[data-bolt-badge],
+[id*="bolt"][id*="badge"],
+[class*="bolt"][class*="badge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+}
+
+/* Iframe-based badges */
+iframe[src*="bolt"],
+iframe[src*="badge"],
+iframe[title*="bolt"],
+iframe[title*="badge"],
+iframe[data-bolt],
+iframe.badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+/* Fixed position badges (common placement) */
+[style*="position: fixed"][style*="bottom"],
+[style*="position:fixed"][style*="bottom"],
+div[style*="z-index: 999"],
+div[style*="z-index:999"],
+div[style*="z-index: 9999"],
+a[href*="bolt.new"],
+a[href*="bolt.diy"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Additional common badge patterns */
+[data-badge="bolt"],
+[data-platform="bolt"],
+[data-branding="bolt"],
+.platform-badge,
+.builder-badge,
+.powered-by-badge,
+[class*="made-in"],
+[class*="powered-by"],
+[class*="built-with"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Bottom-right corner elements (typical badge placement) */
+body > div:last-child[style*="position: fixed"],
+body > div:last-child[style*="position:fixed"],
+body > a:last-child[style*="position: fixed"],
+body > a:last-child[style*="position:fixed"] {
+  display: none !important;
+}
+
+/* SVG-based badges */
+svg[data-badge],
+svg[class*="badge"],
+svg[id*="badge"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Watermark and attribution elements */
+[data-watermark],
+[data-attribution],
+.watermark,
+.attribution {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .prose {
+    max-width: 100%;
+  }
+
+  .brand-logo {
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --logo-width: 100px;
+  }
+
+  .brand-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0F172A;
+    color: #F1F5F9;
+  }
+
+  .prose p {
+    color: #CBD5E1;
+  }
+
+  .prose a {
+    color: var(--brand-accent);
+  }
 }
