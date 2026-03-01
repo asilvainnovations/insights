@@ -1,13 +1,15 @@
+// /mnt/kimi/upload/Footer.tsx
+
 import React, { useState } from 'react';
 import { 
   Mail, 
   Linkedin, 
-  Facebook,   // ADDED MISSING IMPORT
-  Instagram,  // ADDED MISSING IMPORT
+  Facebook,
+  Instagram,
   ArrowRight, 
   Phone, 
   Globe 
-} from 'lucide-react'; // REMOVED UNUSED IMPORTS (Twitter, Youtube, MapPin)
+} from 'lucide-react';
 import { CATEGORIES, Category, CATEGORY_COLORS } from '@/types';
 
 interface FooterProps {
@@ -91,22 +93,42 @@ export default function Footer({ onCategorySelect, onNewsletterOpen }: FooterPro
                 <Phone className="w-5 h-5" />
                 +63 (917) 855-5134
               </a>
-              <a href="https://asilvainnovations.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors">
+              <a 
+                href="https://asilvainnovations.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3 hover:text-white transition-colors"
+              >
                 <Globe className="w-5 h-5" />
                 asilvainnovations.com
               </a>
             </div>
 
-            {/* Social Links - FIXED ICONS AND HREFS */}
+            {/* Social Links */}
             <div className="flex gap-4 mt-6">
-              <a href="https://linkedin.com/company/asilvainnovations" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors">
+              <a 
+                href="https://linkedin.com/company/asilvainnovations" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors"
+              >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://facebook.com/asilvainnovations" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors">
-                <Facebook className="w-5 h-5" /> {/* NOW IMPORTED */}
+              <a 
+                href="https://facebook.com/asilvainnovations" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com/asilvainnovations" target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-pink-600 transition-colors">
-                <Instagram className="w-5 h-5" /> {/* NOW IMPORTED */}
+              <a 
+                href="https://instagram.com/asilvainnovations" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 bg-gray-800 rounded-full hover:bg-pink-600 transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -140,70 +162,105 @@ export default function Footer({ onCategorySelect, onNewsletterOpen }: FooterPro
             <h5 className="font-semibold text-lg mb-4">Resources</h5>
             <ul className="space-y-3">
               <li>
-                <a href="https://asilvainnovations.com/case-studies/" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/case-studies/" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Case Studies
                 </a>
               </li>
               <li>
-                <a href="https://asilvainnovations.com/whitepapers/" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/whitepapers/" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Whitepapers
                 </a>
               </li>
               <li>
-                <a href="https://asilvainnovations.com/ddrive-m/" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/ddrive-m/" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   DDRiVE-M
                 </a>
               </li>
               <li>
-                <a href="https://asilvainnovations.com/strat-planner-pro" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/strat-planner-pro" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Strat Planner Pro
                 </a>
               </li>
               <li>
-                <a href="https://asilvainnovations.com/rtl/" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/rtl/" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Real-Time Leadership
                 </a>
               </li>
               <li>
-                <a href="https://asilvainnovations.com/smart-flood-detection/" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/smart-flood-detection/" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Smart Flood Detection
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Company Column - CRITICAL FIX APPLIED HERE */}
+          {/* Company Column */}
           <div>
             <h5 className="font-semibold text-lg mb-4">Company</h5>
             <ul className="space-y-3">
               <li>
-                <a href="https://asilvainnovations.com/about/" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/about/" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   About Us
                 </a>
               </li>
               <li>
-                <a href="https://asilvainnovations.com/solutions" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/solutions" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Our Solutions
                 </a>
               </li>
               <li>
-                <a href="https://asilvainnovations.com/products/" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/products/" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Our Products
                 </a>
               </li>
               <li>
-                <a href="https://asilvainnovations.com/pricing-plans" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/pricing-plans" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Pricing Plans
                 </a>
               </li>
               <li>
-                <a href="https://asilvainnovations.com/contact/" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/contact/" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Contact Us
                 </a>
               </li>
-              {/* FIXED: Changed self-closing tag to proper opening/closing tags */}
               <li>
-                <a href="https://asilvainnovations.com/partnerships" className="text-gray-400 hover:text-white transition-colors">
+                <a 
+                  href="https://asilvainnovations.com/partnerships" 
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Partnerships
                 </a>
               </li>
@@ -211,27 +268,46 @@ export default function Footer({ onCategorySelect, onNewsletterOpen }: FooterPro
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar - FIXED: Properly separated anchor tags */}
         <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
             © {currentYear} ASilva Innovations. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm">
-            <a href="https://asilvainnovations.com/privacy-policy" className="text-gray-500 hover:text-white transition-colors">
+          <div className="flex flex-wrap gap-6 text-sm">
+            <a 
+              href="https://asilvainnovations.com/privacy-policy" 
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               Privacy Policy
             </a>
-            <a href="https://asilvainnovations.com/terms/" className="text-gray-500 hover:text-white transition-colors">
+            <a 
+              href="https://asilvainnovations.com/terms/" 
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               Terms of Service
             </a>
-            <a href="https://asilvainnovations.com/cookie-policy/" className="text-gray-500 hover:text-white transition-colors">
+            <a 
+              href="https://asilvainnovations.com/cookie-policy/" 
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               Cookie Policy
-               <a href="https://asilvainnovations.com/accessibility/" className="text-gray-500 hover:text-white transition-colors">
+            </a>
+            <a 
+              href="https://asilvainnovations.com/accessibility/" 
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               Accessibility Policy
-            <a href="https://asilvainnovations.com/ai-ethics-and-policy-framework/" className="text-gray-500 hover:text-white transition-colors">
+            </a>
+            <a 
+              href="https://asilvainnovations.com/ai-ethics-and-policy-framework/" 
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               AI Ethics and Policy Framework
             </a>
-            </a>
-            <a href="https://asilvainnovations.com/site-map/" className="text-gray-500 hover:text-white transition-colors">
+            <a 
+              href="https://asilvainnovations.com/site-map/" 
+              className="text-gray-500 hover:text-white transition-colors"
+            >
               Sitemap
             </a>
           </div>
